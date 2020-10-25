@@ -8,15 +8,15 @@ using MyShopDemo.Core.Models;
 
 namespace MyShopDemo.DataAccess.InMemory
 {
-    class ProjectRepository
+    public class ProductRepository
     {
         ObjectCache cache = MemoryCache.Default;
         List<Product> products;
 
-        public ProjectRepository()
+        public ProductRepository()
         {
             products = cache["products"] as List<Product>;
-            if(products == null)
+            if (products == null)
             {
                 products = new List<Product>();
             }
@@ -36,7 +36,7 @@ namespace MyShopDemo.DataAccess.InMemory
         {
             Product productToUpdate = products.Find(p => p.id == product.id);
 
-            if(productToUpdate != null)
+            if (productToUpdate != null)
             {
                 productToUpdate = product;
             }
